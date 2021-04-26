@@ -13,7 +13,24 @@
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 	<meta name="digital-land:template" content="page-per-thing/record.html">
 
-	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />    <meta property="og:image" content="/images/govuk-opengraph-image.png">
+<!-- should make this optional, no need to load if not showing a map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin="" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+	crossorigin=""></script>
+
+<!-- assets needed for fullscreen maps -->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<!-- script needed for recentring map -->
+<script src="https://digital-land.github.io/javascripts/Leaflet.recentre.js"></script>
+
+<script src="https://digital-land.github.io/javascripts/dl-maps.js"></script>	<link href="https://digital-land.github.io/stylesheets/dl-frontend.css" rel="stylesheet" />    <meta property="og:image" content="/images/govuk-opengraph-image.png">
   </head>
   <body class="govuk-template__body ">
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
@@ -134,6 +151,10 @@
 <div class="govuk-grid-row">    <div class="govuk-grid-column-two-thirds"><article class="data-record govuk-!-margin-bottom-6">
     <h4 class="govuk-heading-s data-record__identifier">#/document/authoritative-boundary/CA27-1</h4>
     <dl class="govuk-summary-list data-record__properties">            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">document-url
+            </dt>
+            <dd class="govuk-summary-list__value">                <a class="govuk-link" href="https://www.lambeth.gov.uk/sites/default/files/CA27LoughboroughPark.pdf">https://www.lambeth.gov.uk/sites/default/files/CA27LoughboroughPark.pdf</a>            </dd>
+        </div>        <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">document
             </dt>
             <dd class="govuk-summary-list__value">                <span class="dl-select-all">authoritative-boundary:CA27-1</span>            </dd>
@@ -145,9 +166,11 @@
 </div>
             </dd>
         </div>        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">document-url
+            <dt class="govuk-summary-list__key">geographies
             </dt>
-            <dd class="govuk-summary-list__value">                <a class="govuk-link" href="https://www.lambeth.gov.uk/sites/default/files/CA27LoughboroughPark.pdf">https://www.lambeth.gov.uk/sites/default/files/CA27LoughboroughPark.pdf</a>            </dd>
+            <dd class="govuk-summary-list__value"><a href="https://digital-land.github.io/conservation-area/local-authority-eng/LBH/CA27" class="govuk-link">Loughborough Park</a>
+<span title="Geography identifier: /conservation-area/local-authority-eng/LBH/CA27" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">Geography identifier is </span>/conservation-area/local-authority-eng/LBH/CA27)</span>
+            </dd>
         </div>        <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">organisations
             </dt>
@@ -156,11 +179,6 @@
 <span title="Organisation identifier: local-authority-eng:LBH" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">Organisation identifier is </span>local-authority-eng:LBH)</span>
 </li>
                 </ul>            </dd>
-        </div>        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">geographies
-            </dt>
-            <dd class="govuk-summary-list__value">conservation-area:CA27
-            </dd>
         </div>        <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">entry-date
             </dt>
@@ -175,7 +193,23 @@
     <a href="https://digital-land.github.io/specification/schema/document/">View the document schema</a>
 </p>
 
+
+    <h2 class="govuk-heading-m">Geographical area</h2>
+
+    <div class="dl-map__wrapper"><div 
+        class="dl-map govuk-!-margin-top-4 govuk-!-margin-bottom-2"
+        id="dlMap"
+        data-module="boundary-map"
+        style="height: 460px;" data-geojson-urls="https://digital-land.github.io/conservation-area/local-authority-eng/LBH/CA27/geometry.geojson"   
+    >
+        <noscript>To view this map, you need to enable JavaScript.</noscript>
+    </div>
 </div>
+
+
+    <div class="govuk-!-margin-top-2">
+        <a class="dl-page-action-button" href="https://digital-land.github.io/conservation-area/local-authority-eng/LBH/CA27/geometry.geojson">Download geojson</a>
+    </div></div>
 
 <div id="history"><h2 class="govuk-heading-m govuk-!-margin-top-9">History</h2>
 <div class="data-table__wrapper" data-module="data-table">
@@ -187,22 +221,22 @@
             <th>entry-date</th>
             <th>resource</th>
             <th>line</th>
-            <th>document-url</th>
+            <th>document-types</th>
             <th>organisations</th>
             <th>geographies</th>
+            <th>document-url</th>
             <th>document</th>
-            <th>document-types</th>
         </tr>
     </thead>
     <tbody>        <tr>
             <td>2021-04-22</td>
-            <td><a href="https://github.com/digital-land/document-collection/tree/main/transformed/document/7eb4ad2c1f97f0e3a107a2cda99abfe23e016669adf8aaae2596ea6af3da0103.csv#L422">7eb4ad2c1f97...</a></td>
+            <td><a href="https://github.com/digital-land/document-collection/tree/main/transformed/document/6cbca87f1b04fc5732996ace762fb6def1ce856f1dbe441a3f4195ef4aaa5ee2.csv#L422">6cbca87f1b04...</a></td>
             <td>421</td>
-                <td>https://www.lambeth.gov.uk/sites/default/files/CA27LoughboroughPark.pdf</td> 
-                <td>local-authority-eng:LBH</td> 
-                <td>conservation-area:CA27</td> 
-                <td>authoritative-boundary:CA27-1</td> 
                 <td>authoritative-boundary</td> 
+                <td>local-authority-eng:LBH</td> 
+                <td>/conservation-area/local-authority-eng/LBH/CA27</td> 
+                <td>https://www.lambeth.gov.uk/sites/default/files/CA27LoughboroughPark.pdf</td> 
+                <td>authoritative-boundary:CA27-1</td> 
         </tr>    </tbody>
 </table>
 

@@ -11,7 +11,10 @@
 <link rel="shortcut icon" sizes="32x32" href="/images/favicon-32x32.png" type="image/png">
 <link rel="shortcut icon" sizes="16x16" href="/images/favicon-16x16.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-	<meta name="digital-land:template" content="page-per-thing/record.html"><!-- should make this optional, no need to load if not showing a map -->
+	<meta name="digital-land:template" content="page-per-thing/record.html">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise%2Ces6%2Ces5%2Ces2015%2Ces2016%2CURL%2CURLSearchParams%2CObject.entries%2CObject.fromEntries%2CAbortController"></script>
+
+<!-- should make this optional, no need to load if not showing a map -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 crossorigin="" />
@@ -154,22 +157,19 @@ crossorigin="" />
 <div class="govuk-grid-row">    <div class="govuk-grid-column-two-thirds"><article class="data-record govuk-!-margin-bottom-6">
     <h4 class="govuk-heading-s data-record__identifier">#/document/extension-report/CA04-1</h4>
     <dl class="govuk-summary-list data-record__properties">            <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">document-types
+            <dt class="govuk-summary-list__key">geographies
             </dt>
-            <dd class="govuk-summary-list__value"><div><a href="https://digital-land.github.io/document-type/extension-report" class="govuk-link">Extension report</a>
-<span title="document-types identifier: extension-report" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">document-types identifier is </span>extension-report)</span>
-</div>
+            <dd class="govuk-summary-list__value"><a href="https://digital-land.github.io/conservation-area/local-authority-eng/LBH/CA04" class="govuk-link">Albert Square</a>
+<span title="Geography identifier: /conservation-area/local-authority-eng/LBH/CA04" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">Geography identifier is </span>/conservation-area/local-authority-eng/LBH/CA04)</span>
             </dd>
         </div>        <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">document
             </dt>
             <dd class="govuk-summary-list__value">                <span class="dl-select-all">extension-report:CA04-1</span>            </dd>
         </div>        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">geographies
+            <dt class="govuk-summary-list__key">document-url
             </dt>
-            <dd class="govuk-summary-list__value"><a href="https://digital-land.github.io/conservation-area/local-authority-eng/LBH/CA04" class="govuk-link">Albert Square</a>
-<span title="Geography identifier: /conservation-area/local-authority-eng/LBH/CA04" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">Geography identifier is </span>/conservation-area/local-authority-eng/LBH/CA04)</span>
-            </dd>
+            <dd class="govuk-summary-list__value">                <a class="govuk-link" href="https://www.lambeth.gov.uk/sites/default/files/AlbertSquareextensionreport1975_1.pdf">https://www.lambeth.gov.uk/sites/default/files/AlbertSquareextensionreport1975_1.pdf</a>            </dd>
         </div>        <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">organisations
             </dt>
@@ -179,9 +179,12 @@ crossorigin="" />
 </li>
                 </ul>            </dd>
         </div>        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">document-url
+            <dt class="govuk-summary-list__key">document-types
             </dt>
-            <dd class="govuk-summary-list__value">                <a class="govuk-link" href="https://www.lambeth.gov.uk/sites/default/files/AlbertSquareextensionreport1975_1.pdf">https://www.lambeth.gov.uk/sites/default/files/AlbertSquareextensionreport1975_1.pdf</a>            </dd>
+            <dd class="govuk-summary-list__value"><div><a href="https://digital-land.github.io/document-type/extension-report" class="govuk-link">Extension report</a>
+<span title="document-types identifier: extension-report" class="govuk-!-font-size-16 secondary-text data-reference">(<span class="govuk-visually-hidden">document-types identifier is </span>extension-report)</span>
+</div>
+            </dd>
         </div>        <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">entry-date
             </dt>
@@ -224,22 +227,22 @@ crossorigin="" />
             <th>entry-date</th>
             <th>resource</th>
             <th>line</th>
+            <th>geographies</th>
+            <th>document-url</th>
             <th>document</th>
             <th>document-types</th>
-            <th>document-url</th>
             <th>organisations</th>
-            <th>geographies</th>
         </tr>
     </thead>
     <tbody>        <tr>
             <td>2021-04-09</td>
             <td><a href="https://github.com/digital-land/document-collection/tree/main/transformed/document/0d7abf3cec0f75fc60329d5ddd18f8bd73d964b0ac468c525e7f621b90b3f5db.csv#L283">0d7abf3cec0f...</a></td>
             <td>282</td>
+                <td>/conservation-area/local-authority-eng/LBH/CA04</td> 
+                <td>https://www.lambeth.gov.uk/sites/default/files/AlbertSquareextensionreport1975_1.pdf</td> 
                 <td>extension-report:CA04-1</td> 
                 <td>extension-report</td> 
-                <td>https://www.lambeth.gov.uk/sites/default/files/AlbertSquareextensionreport1975_1.pdf</td> 
                 <td>local-authority-eng:LBH</td> 
-                <td>/conservation-area/local-authority-eng/LBH/CA04</td> 
         </tr>    </tbody>
 </table>
 
